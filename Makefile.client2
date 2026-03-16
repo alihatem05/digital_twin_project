@@ -1,0 +1,14 @@
+DOMAIN ?= AF_INET
+SERVER ?= localhost
+PATH_TYPE ?= straight
+LABEL ?= run
+
+all: build sim
+compile:
+	@echo "No compile needed"
+build:
+	@echo "No build needed"
+sim:
+	cd /home/ubuntu/LineFollower_Success && PYTHONPATH=. python3 src/visualizer/visualizer.py --domain=$(DOMAIN) --server-url=$(SERVER) --label=$(LABEL) --path=$(PATH_TYPE); bash
+clean:
+	@echo "Nothing to clean"

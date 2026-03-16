@@ -1,0 +1,12 @@
+DOMAIN ?= AF_INET
+FABRIC_SERVER ?= /data/tools/pave/innexis_home/vsi_2025.2/examples/vsiTutorials/invPendDemo/src/timeSyncDemo/FabricServer
+
+all: build sim
+compile:
+	@echo "No compile needed"
+build:
+	@echo "No build needed"
+sim:
+	$(FABRIC_SERVER) --domain=$(DOMAIN) --cmdFile=$(VSISIM_CMD_FILE)
+clean:
+	@echo "Nothing to clean"
