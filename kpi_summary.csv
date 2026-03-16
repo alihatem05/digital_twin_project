@@ -1,0 +1,16 @@
+experiment,label,max_overshoot,final_error,steady_state_error,settling_time,duration,source_file
+E1,Kp0.5_Ki0.05_Kd0.1_run1,0.551148,0.369719,0.358669,14.999000,14.999000,e1_results_Kp0.5_Ki0.05_Kd0.1_run1.csv
+E1,Kp0.5_Ki0.05_Kd0.1_run2,0.551148,0.369719,0.358669,14.999000,14.999000,e1_results_Kp0.5_Ki0.05_Kd0.1_run2.csv
+E1,Kp0.5_Ki0.05_Kd0.1_run3,0.551148,0.369719,0.358669,14.999000,14.999000,e1_results_Kp0.5_Ki0.05_Kd0.1_run3.csv
+E1,Kp2.0_Ki0.1_Kd0.5_run1,0.504768,0.004330,0.045087,9.709000,14.999000,e1_results_Kp2.0_Ki0.1_Kd0.5_run1.csv
+E2,Kp2.0_Ki0.1_Kd0.5_curved_run1,0.504551,0.031119,0.049064,11.756000,14.999000,e2_results_Kp2.0_Ki0.1_Kd0.5_curved_run1.csv
+E2,Kp2.0_Ki0.1_Kd0.5_curved_run2,0.504551,0.031119,0.049064,11.756000,14.999000,e2_results_Kp2.0_Ki0.1_Kd0.5_curved_run2.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.01_run1,0.504775,0.004689,0.045108,9.710000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.01_run1.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.01_run2,0.504744,0.004256,0.045185,9.708000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.01_run2.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.05_run1,0.504283,0.004541,0.044944,9.716000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.05_run1.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.05_run2,0.504850,0.004285,0.044427,9.671000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.05_run2.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.0_run1,0.504768,0.004330,0.045087,9.709000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.0_run1.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.0_run2,0.504768,0.004330,0.045087,9.709000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.0_run2.csv
+E3,Kp2.0_Ki0.1_Kd0.5_noise0.1_run1,0.505951,0.005176,0.044611,11.606000,14.999000,e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.1_run1.csv
+E4,PD_Kp2.0_Ki0.0_Kd0.5_curved_noise0.05_run1,0.504736,0.033711,0.043516,11.697000,14.999000,e4_results_PD_Kp2.0_Ki0.0_Kd0.5_curved_noise0.05_run1.csv
+E4,PID_Kp2.0_Ki0.1_Kd0.5_curved_noise0.05_run1,0.504433,0.031233,0.047828,11.688000,14.999000,e4_results_PID_Kp2.0_Ki0.1_Kd0.5_curved_noise0.05_run1.csv

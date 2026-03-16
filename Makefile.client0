@@ -4,6 +4,6 @@ compile:
 build:
 	@echo "No build needed"
 sim:
-	cd /home/ubuntu/LineFollower_Success && PYTHONPATH=. python3 src/plant/plant.py --domain=AF_INET --server-url=localhost --noise=0.05 --path=curved; bash
+	cd /home/ubuntu/capstone_ali/ali_hatem && PYTHONPATH=. python3 src/plant/plant.py --domain=AF_INET --server-url=localhost --noise=0.05 --path=curved; bash
 clean:
 	@echo "Nothing to clean"

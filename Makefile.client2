@@ -1,7 +1,7 @@
 DOMAIN ?= AF_INET
 SERVER ?= localhost
-PATH_TYPE ?= straight
-LABEL ?= run
+PATH_TYPE ?= curved
+LABEL ?= PID_Kp2.0_Ki0.1_Kd0.5_curved_noise0.05_run1
 
 all: build sim
 compile:
@@ -9,6 +9,6 @@ compile:
 build:
 	@echo "No build needed"
 sim:
-	cd /home/ubuntu/LineFollower_Success && PYTHONPATH=. python3 src/visualizer/visualizer.py --domain=$(DOMAIN) --server-url=$(SERVER) --label=$(LABEL) --path=$(PATH_TYPE); bash
+	cd /home/ubuntu/capstone_ali/ali_hatem && PYTHONPATH=. python3 src/visualizer/visualizer.py --domain=$(DOMAIN) --server-url=$(SERVER) --label=$(LABEL) --path=$(PATH_TYPE); bash
 clean:
 	@echo "Nothing to clean"

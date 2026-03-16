@@ -1,6 +1,6 @@
 #!/bin/bash
-set -euo pipefail
 source /data/tools/pave/innexis_home/vsi_2025.2/env_vsi.bash 2>/dev/null || true
+set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
