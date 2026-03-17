@@ -98,7 +98,11 @@ Archived experiment outputs:
 - `e4_results_*.csv`, `e4_traj_*.csv`
 
 Plots:
-- `results_<label>.png`
+- `plot_<label>.png`
+- `plot_E1_gain_sweep.png`
+- `plot_E2_curved_path.png`
+- `plot_E3_noise_rejection.png`
+- `plot_E4_pd_vs_pid.png`
 
 ## 7. KPIs
 
@@ -111,25 +115,27 @@ Computed by visualizer and analysis scripts:
 Use `aggregate_results.py` to summarize all experiment CSV files.
 
 ## 8. Results Summary Table
-
-Populate this section after running all experiments.
-
 | Experiment | Best/Compared Config | Overshoot (m) | Settling Time (s) | Steady-State Error (m) | Notes |
 |---|---|---:|---:|---:|---|
-| E1 | TODO | TODO | TODO | TODO | TODO |
-| E2 | TODO | TODO | TODO | TODO | TODO |
-| E3 | TODO | TODO | TODO | TODO | TODO |
-| E4 | PD vs PID | TODO | TODO | TODO | TODO |
+| E1 | Kp=2.0, Ki=0.1, Kd=0.5 (best observed) | 0.5048 | 9.71 | 0.0451 | Better than Kp=0.5, Ki=0.05, Kd=0.1 (SSE 0.3587, settling 15.0s). |
+| E2 | Kp=2.0, Ki=0.1, Kd=0.5 on curved path | 0.5046 | 11.76 | 0.0491 | Curved path increases settling time and SSE versus straight path. |
+| E3 | Kp=2.0, Ki=0.1, Kd=0.5 across noise levels | 0.5048 avg | 9.83 avg | 0.0449 avg | Robust to 0.0-0.1 noise; one run at noise 0.1 settled slower (11.61s). |
+| E4 | PD vs PID on curved+noise | PD: 0.5047 / PID: 0.5044 | PD: 11.70 / PID: 11.69 | PD: 0.0435 / PID: 0.0478 | Similar transient metrics in this sampled run set; more runs needed for stable ranking. |
+
+Data quality notes:
+- The current dataset is partially complete because some long batches were interrupted.
+- `aggregate_results.py` reported invalid/empty files for: `e1_results_Kp2.0_Ki0.1_Kd0.5_run2.csv`, `e1_results_Kp2.0_Ki0.1_Kd0.5_run3.csv`, and `e3_results_Kp2.0_Ki0.1_Kd0.5_noise0.1_run2.csv`.
+- Conclusions above are based on valid rows in `kpi_summary.csv`.
 
 ## 9. Discussion
 
-Suggested discussion points:
-- Effect of increasing `Kp` on rise speed and overshoot
-- Effect of `Ki` on removing residual bias
-- Effect of `Kd` on damping oscillations
-- Why curved tracking is harder than straight tracking
-- Why PID outperforms PD for steady-state bias rejection under noise
+1. Straight-path gain sweep (E1) showed clear improvement from low gains to moderate gains.
+2. The low-gain case (`Kp=0.5, Ki=0.05, Kd=0.1`) had large residual tracking error and did not settle by the end of the run window.
+3. The moderate-gain case (`Kp=2.0, Ki=0.1, Kd=0.5`) reduced SSE substantially and settled faster, making it the best observed candidate in current runs.
+4. Curved tracking (E2) was harder than straight tracking: settling time increased from about 9.7s to 11.8s and SSE increased from about 0.045 to 0.049.
+5. Noise robustness (E3) was acceptable up to tested noise levels; KPI drift was small, with the largest impact seen in settling time at one 0.1-noise run.
+6. PD vs PID (E4) produced close transient behavior in the sampled runs; additional repetitions are recommended before claiming strong superiority in this setup.
 
 ## 10. Conclusion
 
-The repository now contains a complete 3-client IVSI line-following implementation with automated E1-E4 experiment scripts, curved-path support, noise testing, and KPI generation. Final numerical conclusions should be filled from the generated CSV outputs and `aggregate_results.py` summary.
+The repository provides a working 3-client IVSI line-following system with automated E1-E4 experiment scripts, curved-path support, noise testing, KPI aggregation, and plotting. Current measured data confirms that the moderate PID tuning (`Kp=2.0, Ki=0.1, Kd=0.5`) significantly outperforms the lower-gain case in straight-line tracking, while curved-path and noise conditions degrade settling behavior as expected. The framework is complete and reproducible; remaining work is only to rerun missing/invalid trials if fully dense statistics are required.
